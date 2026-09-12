@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}
+      .title{font:700 30px Arial,sans-serif;fill:#172033}
+      .subtitle{font:400 15px Arial,sans-serif;fill:#64748b}
+      .section{font:700 14px Arial,sans-serif;letter-spacing:1.2px;fill:#334155}
+      .lab{font:700 15px Arial,sans-serif;fill:#172033}
+      .desc{font:400 12px Arial,sans-serif;fill:#64748b}
+      .node{fill:#fff;stroke:#cbd5e1;stroke-width:1.5}
+      .node:hover{stroke:#2563eb;stroke-width:2.5}
+      .core{fill:#fff;stroke:#2563eb;stroke-width:2}
+      .line{stroke:#94a3b8;stroke-width:2;fill:none}
+      .arrow{fill:#94a3b8}
+      .tag{font:700 11px Arial,sans-serif;fill:#2563eb}
+      a{text-decoration:none}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" class="arrow"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" rx="18" class="bg"/>
+
+  <text x="60" y="58" class="title">Cybersecurity Home Lab</text>
+  <text x="60" y="86" class="subtitle">Interactive architecture map · LAB 1–14</text>
+
+  <!-- Main architecture flow -->
+  <path d="M600 145 L600 185" class="line" marker-end="url(#arrow)"/>
+  <path d="M600 255 L600 295" class="line" marker-end="url(#arrow)"/>
+  <path d="M600 365 L600 405" class="line" marker-end="url(#arrow)"/>
+  <path d="M600 475 L600 515" class="line" marker-end="url(#arrow)"/>
+
+  <!-- Infrastructure -->
+  <text x="60" y="132" class="section">INFRASTRUCTURE &amp; IDENTITY</text>
+
+  <a href="Documentation/01-Windows-Server-Infrastructure/README.md">
+    <rect x="60" y="150" width="220" height="105" rx="12" class="node"/>
+    <text x="82" y="181" class="lab">LAB 1</text>
+    <text x="82" y="205" class="desc">Windows Server</text>
+    <text x="82" y="223" class="desc">Infrastructure</text>
+    <text x="82" y="244" class="tag">Open LAB 1 →</text>
+  </a>
+
+  <a href="Documentation/02-Active-Directory-DNS/README.md">
+    <rect x="300" y="150" width="220" height="105" rx="12" class="node"/>
+    <text x="322" y="181" class="lab">LAB 2</text>
+    <text x="322" y="205" class="desc">Active Directory</text>
+    <text x="322" y="223" class="desc">&amp; DNS</text>
+    <text x="322" y="244" class="tag">Open LAB 2 →</text>
+  </a>
+
+  <a href="Documentation/03-AD-Users-Groups-GPO/README.md">
+    <rect x="540" y="150" width="220" height="105" rx="12" class="core"/>
+    <text x="562" y="181" class="lab">LAB 3</text>
+    <text x="562" y="205" class="desc">AD Users, Groups</text>
+    <text x="562" y="223" class="desc">&amp; Group Policy</text>
+    <text x="562" y="244" class="tag">Open LAB 3 →</text>
+  </a>
+
+  <a href="Documentation/04-Windows-11-Domain-Integration/README.md">
+    <rect x="780" y="150" width="220" height="105" rx="12" class="node"/>
+    <text x="802" y="181" class="lab">LAB 4</text>
+    <text x="802" y="205" class="desc">Windows 11</text>
+    <text x="802" y="223" class="desc">Domain Integration</text>
+    <text x="802" y="244" class="tag">Open LAB 4 →</text>
+  </a>
+
+  <!-- Connect infrastructure nodes -->
+  <path d="M280 202 L300 202" class="line" marker-end="url(#arrow)"/>
+  <path d="M520 202 L540 202" class="line" marker-end="url(#arrow)"/>
+  <path d="M760 202 L780 202" class="line" marker-end="url(#arrow)"/>
+
+  <!-- Services / network layer -->
+  <text x="60" y="292" class="section">SERVICES &amp; NETWORK</text>
+
+  <a href="Documentation/05-File-Shares-NTFS-SMB/README.md">
+    <rect x="60" y="310" width="220" height="105" rx="12" class="node"/>
+    <text x="82" y="341" class="lab">LAB 5</text>
+    <text x="82" y="365" class="desc">File Shares, NTFS</text>
+    <text x="82" y="383" class="desc">&amp; SMB</text>
+    <text x="82" y="404" class="tag">Open LAB 5 →</text>
+  </a>
+
+  <a href="Documentation/06-Networking-Troubleshooting/README.md">
+    <rect x="300" y="310" width="220" height="105" rx="12" class="node"/>
+    <text x="322" y="341" class="lab">LAB 6</text>
+    <text x="322" y="365" class="desc">Networking &amp;</text>
+    <text x="322" y="383" class="desc">Troubleshooting</text>
+    <text x="322" y="404" class="tag">Open LAB 6 →</text>
+  </a>
+
+  <a href="Documentation/07-Windows-Security-Hardening/README.md">
+    <rect x="540" y="310" width="220" height="105" rx="12" class="core"/>
+    <text x="562" y="341" class="lab">LAB 7</text>
+    <text x="562" y="365" class="desc">Windows Security</text>
+    <text x="562" y="383" class="desc">&amp; Hardening</text>
+    <text x="562" y="404" class="tag">Open LAB 7 →</text>
+  </a>
+
+  <a href="Documentation/08-Event-Logs-Monitoring/README.md">
+    <rect x="780" y="310" width="220" height="105" rx="12" class="node"/>
+    <text x="802" y="341" class="lab">LAB 8</text>
+    <text x="802" y="365" class="desc">Event Logs &amp;</text>
+    <text x="802" y="383" class="desc">Monitoring</text>
+    <text x="802" y="404" class="tag">Open LAB 8 →</text>
+  </a>
+
+  <!-- Detection -->
+  <text x="60" y="452" class="section">DETECTION &amp; RESPONSE</text>
+
+  <a href="Documentation/09-Security-Operations-Triage/README.md">
+    <rect x="60" y="470" width="220" height="105" rx="12" class="node"/>
+    <text x="82" y="501" class="lab">LAB 9</text>
+    <text x="82" y="525" class="desc">Security Operations</text>
+    <text x="82" y="543" class="desc">&amp; Triage</text>
+    <text x="82" y="564" class="tag">Open LAB 9 →</text>
+  </a>
+
+  <a href="Documentation/10-Sysmon/README.md">
+    <rect x="300" y="470" width="220" height="105" rx="12" class="node"/>
+    <text x="322" y="501" class="lab">LAB 10</text>
+    <text x="322" y="525" class="desc">Windows Security</text>
+    <text x="322" y="543" class="desc">&amp; Sysmon</text>
+    <text x="322" y="564" class="tag">Open LAB 10 →</text>
+  </a>
+
+  <a href="Documentation/11-Wazuh-SIEM/README.md">
+    <rect x="540" y="470" width="220" height="105" rx="12" class="core"/>
+    <text x="562" y="501" class="lab">LAB 11</text>
+    <text x="562" y="525" class="desc">Wazuh SIEM &amp;</text>
+    <text x="562" y="543" class="desc">Detection Engineering</text>
+    <text x="562" y="564" class="tag">Open LAB 11 →</text>
+  </a>
+
+  <a href="Documentation/12-Vulnerability-Management/README.md">
+    <rect x="780" y="470" width="220" height="105" rx="12" class="node"/>
+    <text x="802" y="501" class="lab">LAB 12</text>
+    <text x="802" y="525" class="desc">Vulnerability</text>
+    <text x="802" y="543" class="desc">Management</text>
+    <text x="802" y="564" class="tag">Open LAB 12 →</text>
+  </a>
+
+  <!-- Recovery / assessment -->
+  <text x="60" y="612" class="section">RECOVERY &amp; SECURITY ASSESSMENT</text>
+
+  <a href="Documentation/13-Backup-Recovery-Security-Testing/README.md">
+    <rect x="60" y="630" width="460" height="90" rx="12" class="node"/>
+    <text x="84" y="661" class="lab">LAB 13 — Backup, Recovery &amp; Security Testing</text>
+    <text x="84" y="686" class="desc">Backup strategy, integrity validation and controlled recovery testing</text>
+    <text x="84" y="707" class="tag">Open LAB 13 →</text>
+  </a>
+
+  <a href="Documentation/14-Security-Assessment/README.md">
+    <rect x="540" y="630" width="460" height="90" rx="12" class="core"/>
+    <text x="564" y="661" class="lab">LAB 14 — Security Assessment</text>
+    <text x="564" y="686" class="desc">Overall security posture, findings, risk and validation</text>
+    <text x="564" y="707" class="tag">Open LAB 14 →</text>
+  </a>
+
+  <!-- Progression connectors -->
+  <path d="M110 255 L110 310" class="line" marker-end="url(#arrow)"/>
+  <path d="M410 255 L410 310" class="line" marker-end="url(#arrow)"/>
+  <path d="M650 255 L650 310" class="line" marker-end="url(#arrow)"/>
+  <path d="M890 255 L890 310" class="line" marker-end="url(#arrow)"/>
+  <path d="M170 415 L170 470" class="line" marker-end="url(#arrow)"/>
+  <path d="M410 415 L410 470" class="line" marker-end="url(#arrow)"/>
+  <path d="M650 415 L650 470" class="line" marker-end="url(#arrow)"/>
+  <path d="M890 415 L890 470" class="line" marker-end="url(#arrow)"/>
+</svg>

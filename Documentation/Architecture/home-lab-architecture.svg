@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <style>
+      .bg{fill:#cbd5e1}
+      .panel{fill:#e2e8f0;stroke:#94a3b8;stroke-width:1.5}
+      .title{font:700 30px Arial,sans-serif;fill:#1f2937}
+      .subtitle{font:400 15px Arial,sans-serif;fill:#64748b}
+      .section{font:700 12px Arial,sans-serif;letter-spacing:1.4px;fill:#475569}
+      .lab{font:700 15px Arial,sans-serif;fill:#1f2937}
+      .desc{font:400 12px Arial,sans-serif;fill:#64748b}
+      .tag{font:700 11px Arial,sans-serif;fill:#2563eb}
+      .node{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.5}
+      .core{fill:#f8fafc;stroke:#475569;stroke-width:2}
+      .line{stroke:#94a3b8;stroke-width:2.2;fill:none}
+      .arrow{fill:#94a3b8}
+      a:hover .node,a:hover .core{stroke:#2563eb;stroke-width:2.5}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" class="arrow"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="900" class="bg"/>
+  <rect x="28" y="24" width="1144" height="852" rx="20" class="panel"/>
+
+  <text x="60" y="68" class="title">Cybersecurity Home Lab</text>
+  <text x="60" y="94" class="subtitle">Interactive architecture map · LAB 1–14</text>
+
+  <!-- Central progression -->
+  <text x="475" y="130" class="section">FOUNDATION &amp; IDENTITY</text>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-1">
+    <rect x="475" y="145" width="250" height="70" rx="12" class="core"/>
+    <text x="500" y="174" class="lab">LAB 1</text>
+    <text x="500" y="194" class="desc">Windows Server 2025 Infrastructure</text>
+    <text x="500" y="207" class="tag">Open LAB 1 →</text>
+  </a>
+
+  <path d="M600 215 L600 235" class="line" marker-end="url(#arrow)"/>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-2">
+    <rect x="475" y="240" width="250" height="70" rx="12" class="node"/>
+    <text x="500" y="269" class="lab">LAB 2</text>
+    <text x="500" y="289" class="desc">Active Directory Domain Services</text>
+    <text x="500" y="302" class="tag">Open LAB 2 →</text>
+  </a>
+
+  <path d="M600 310 L600 330" class="line" marker-end="url(#arrow)"/>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-3">
+    <rect x="475" y="335" width="250" height="70" rx="12" class="node"/>
+    <text x="500" y="364" class="lab">LAB 3</text>
+    <text x="500" y="384" class="desc">AD Users, Groups &amp; Group Policy</text>
+    <text x="500" y="397" class="tag">Open LAB 3 →</text>
+  </a>
+
+  <!-- Branch from central path -->
+  <path d="M475 370 L350 370 L350 445" class="line" marker-end="url(#arrow)"/>
+  <path d="M725 370 L850 370 L850 445" class="line" marker-end="url(#arrow)"/>
+
+  <text x="92" y="430" class="section">DOMAIN &amp; NETWORK SERVICES</text>
+  <text x="830" y="430" class="section">ENDPOINT &amp; SECURITY</text>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-4">
+    <rect x="70" y="445" width="250" height="72" rx="12" class="node"/>
+    <text x="95" y="475" class="lab">LAB 4</text>
+    <text x="95" y="495" class="desc">Windows 11 Domain Integration</text>
+    <text x="95" y="508" class="tag">Open LAB 4 →</text>
+  </a>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-5">
+    <rect x="350" y="445" width="250" height="72" rx="12" class="node"/>
+    <text x="375" y="475" class="lab">LAB 5</text>
+    <text x="375" y="495" class="desc">File Shares, NTFS &amp; SMB</text>
+    <text x="375" y="508" class="tag">Open LAB 5 →</text>
+  </a>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-6">
+    <rect x="630" y="445" width="250" height="72" rx="12" class="node"/>
+    <text x="655" y="475" class="lab">LAB 6</text>
+    <text x="655" y="495" class="desc">Networking &amp; Troubleshooting</text>
+    <text x="655" y="508" class="tag">Open LAB 6 →</text>
+  </a>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-7">
+    <rect x="910" y="445" width="220" height="72" rx="12" class="node"/>
+    <text x="935" y="475" class="lab">LAB 7</text>
+    <text x="935" y="495" class="desc">Windows Security &amp; Hardening</text>
+    <text x="935" y="508" class="tag">Open LAB 7 →</text>
+  </a>
+
+  <!-- Connect branch row -->
+  <path d="M195 517 L195 545 L470 545 L470 570" class="line" marker-end="url(#arrow)"/>
+  <path d="M475 517 L475 545" class="line"/>
+  <path d="M755 517 L755 545 L730 545 L730 570" class="line" marker-end="url(#arrow)"/>
+  <path d="M1020 517 L1020 545 L990 545 L990 570" class="line" marker-end="url(#arrow)"/>
+
+  <text x="80" y="565" class="section">MONITORING, DETECTION &amp; RESPONSE</text>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-8">
+    <rect x="70" y="580" width="250" height="72" rx="12" class="node"/>
+    <text x="95" y="610" class="lab">LAB 8</text>
+    <text x="95" y="630" class="desc">Windows Event Logs &amp; Monitoring</text>
+    <text x="95" y="643" class="tag">Open LAB 8 →</text>
+  </a>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-9">
+    <rect x="350" y="580" width="250" height="72" rx="12" class="node"/>
+    <text x="375" y="610" class="lab">LAB 9</text>
+    <text x="375" y="630" class="desc">Security Operations</text>
+    <text x="375" y="643" class="tag">Open LAB 9 →</text>
+  </a>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-10">
+    <rect x="630" y="580" width="250" height="72" rx="12" class="node"/>
+    <text x="655" y="610" class="lab">LAB 10</text>
+    <text x="655" y="630" class="desc">Windows Security &amp; Sysmon</text>
+    <text x="655" y="643" class="tag">Open LAB 10 →</text>
+  </a>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-11">
+    <rect x="910" y="580" width="220" height="72" rx="12" class="core"/>
+    <text x="935" y="610" class="lab">LAB 11</text>
+    <text x="935" y="630" class="desc">Wazuh SIEM &amp; Detection</text>
+    <text x="935" y="643" class="tag">Open LAB 11 →</text>
+  </a>
+
+  <!-- Final stage -->
+  <path d="M195 652 L195 680" class="line" marker-end="url(#arrow)"/>
+  <path d="M475 652 L475 680" class="line" marker-end="url(#arrow)"/>
+  <path d="M755 652 L755 680" class="line" marker-end="url(#arrow)"/>
+  <path d="M1020 652 L1020 680" class="line" marker-end="url(#arrow)"/>
+
+  <text x="80" y="700" class="section">ASSESSMENT, VULNERABILITY &amp; RECOVERY</text>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-12">
+    <rect x="70" y="715" width="250" height="72" rx="12" class="node"/>
+    <text x="95" y="745" class="lab">LAB 12</text>
+    <text x="95" y="765" class="desc">Vulnerability Management</text>
+    <text x="95" y="778" class="tag">Open LAB 12 →</text>
+  </a>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-13">
+    <rect x="350" y="715" width="250" height="72" rx="12" class="node"/>
+    <text x="375" y="745" class="lab">LAB 13</text>
+    <text x="375" y="765" class="desc">Backup, Recovery &amp; Security Testing</text>
+    <text x="375" y="778" class="tag">Open LAB 13 →</text>
+  </a>
+
+  <a href="../01-Windows-Server-Infrastructure/README.md#lab-14">
+    <rect x="630" y="715" width="250" height="72" rx="12" class="core"/>
+    <text x="655" y="745" class="lab">LAB 14</text>
+    <text x="655" y="765" class="desc">Windows Security &amp; Hardening</text>
+    <text x="655" y="778" class="tag">Open LAB 14 →</text>
+  </a>
+
+  <!-- Small architecture note -->
+  <text x="910" y="730" class="section">LAB FLOW</text>
+  <text x="910" y="752" class="desc">Build → Configure →</text>
+  <text x="910" y="769" class="desc">Monitor → Detect →</text>
+  <text x="910" y="786" class="desc">Assess → Recover</text>
+</svg>

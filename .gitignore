@@ -1,0 +1,28 @@
+# Personal / local files
+*.pdf
+*.docx
+*.xlsx
+
+# Secrets / credentials
+*.pem
+*.key
+*.pfx
+*.p12
+*.crt
+
+# Environment / configuration secrets
+.env
+.env.*
+secrets/
+credentials/
+
+# OS / editor files
+Thumbs.db
+.DS_Store
+.vscode/
+
+# Large / local lab files
+VMs/
+ISO/
+instaladores/
+wireshark/
