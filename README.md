@@ -1,7 +1,8 @@
 ## Lab Architecture
 
-![Cybersecurity Home Lab Architecture](Documentation/Architecture/home-lab-architecture.svg)
+![Cybersecurity Home Lab Architecture](Assets/home-lab-architecture.svg)
 
+<a id="lab-roadmap"></a>
 ### Lab Roadmap
 
 - [LAB 1 — Windows Server 2025 Infrastructure Deployment](#lab-1)
@@ -54,14 +55,14 @@ The lab environment was built using VMware Workstation with a dedicated Windows 
 
 ### Evidence
 
-![VMware Windows Server virtual machine](Documentation/01-Windows-Server-Infrastructure/Screenshots/01-vmware-windows-server.png)
+![VMware Windows Server virtual machine](Assets/01-vmware-windows-server.png)
 
 ## Server Manager
 
 The Windows Server 2025 installation was verified through Server Manager, confirming that the server was operational and ready for further configuration.
 
 ### Evidence
-![Windows Server 2025 Server Manager](Documentation/01-Windows-Server-Infrastructure/Screenshots/02-server-manager-dc01.png)
+![Windows Server 2025 Server Manager](Assets/02-server-manager-dc01.png)
 
 ## Initial Server Configuration
 
@@ -132,7 +133,7 @@ After the repair:
 
 A subsequent DISM health check confirmed that no corruption was detected in the Windows component store.
 
-![DISM component store validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/04-dism-component-store-validation.png)
+![DISM component store validation](Assets/04-dism-component-store-validation.png)
 
 ## Snapshot and Recovery Point
 
@@ -144,7 +145,7 @@ The snapshot provided a rollback point in case subsequent configuration changes 
 
 The snapshot preserved a known-good recovery point before continuing with the Active Directory deployment.
 
-![VMware snapshot](Documentation/01-Windows-Server-Infrastructure/Screenshots/05-vmware-snapshot.png)
+![VMware snapshot](Assets/05-vmware-snapshot.png)
 
 ## Outcome
 
@@ -157,6 +158,9 @@ At the end of this phase:
 - The Windows component store had been repaired and validated.
 - A VMware recovery point was available.
 - The server was ready for Active Directory Domain Services deployment.
+
+⬆️ [Back to Roadmap](#lab-roadmap) 
+
 
 <a id="lab-2"></a>
 # LAB 2 — Active Directory Domain Services Deployment
@@ -194,7 +198,7 @@ Key validation areas included:
 
 ### Validation Evidence
 
-![Active Directory health check](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-2-ad-health-dcdiag.png)
+![Active Directory health check](Assets/phase-2-ad-health-dcdiag.png)
 
 ## DNS Validation
 
@@ -221,7 +225,7 @@ The DNS diagnostic confirmed that all tests passed on DC01 and that name resolut
 
 ### DNS Health Evidence
 
-![DNS health check](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-2-dns-health-check.png)
+![DNS health check](Assets/phase-2-dns-health-check.png)
 
 ## SYSVOL and NETLOGON Validation
 
@@ -234,7 +238,7 @@ The `net share` command confirmed that both required shares were available on DC
 
 ### SYSVOL and NETLOGON Evidence
 
-![SYSVOL and NETLOGON shares](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-2-sysvol-netlogon-shares.png)
+![SYSVOL and NETLOGON shares](Assets/phase-2-sysvol-netlogon-shares.png)
 
 ## Core Services Validation
 
@@ -251,7 +255,7 @@ All four services were in a `Running` state at the time of validation.
 
 ### Core Services Evidence
 
-![Core Active Directory services status](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-2-core-services-status.png)
+![Core Active Directory services status](Assets/phase-2-core-services-status.png)
 
 ## Troubleshooting and Findings
 
@@ -296,6 +300,8 @@ At the end of this phase:
 The initial `dcdiag` SystemLog findings were investigated through additional DNS and service validation. No current DNS failure was reproduced, and the domain controller remained operational.
 
 The environment was therefore ready for the next stage of the lab: continued Active Directory administration and configuration.
+
+⬆️ [Back to Roadmap](#lab-roadmap)
 
 <a id="lab-3"></a>
 # LAB 3 — Active Directory Users, Groups & Group Policy
@@ -390,7 +396,7 @@ The following user policy was configured:
 This policy was selected as a basic example of centralized user configuration through Group Policy.
 
 ### Evidence
-![LAB-Users-Baseline GPO](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-3-gpo-existence.png)
+![LAB-Users-Baseline GPO](Assets/phase-3-gpo-existence.png)
 
 ## Group Policy Linking
 
@@ -401,7 +407,7 @@ This configuration establishes the intended scope of the policy so that user acc
 The inheritance information for the OU was also reviewed. In addition to the directly linked `LAB-Users-Baseline` GPO, inherited domain-level policies such as the `Default Domain Policy` were present.
 
 ### Evidence
-![LAB-Users-Baseline GPO Link Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-3-gpo-link-validation.png)
+![LAB-Users-Baseline GPO Link Validation](Assets/phase-3-gpo-link-validation.png)
 
 ## Administrative Validation
 
@@ -433,7 +439,7 @@ The following validation steps were completed:
 The Group Policy Results confirmed that `LAB-Users-Baseline` was applied from `DC01.lab.local` to the `LAB\alex.admin` user account located in the `Lab-Users` OU.
 
 ### Evidence 
-![LAB-Users-Baseline Applied to Domain User](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-4-gpo-user-policy-applied.png)
+![LAB-Users-Baseline Applied to Domain User](Assets/phase-4-gpo-user-policy-applied.png)
 
 ## Final Outcome
 
@@ -462,6 +468,9 @@ At the end of this phase:
 The Active Directory organizational structure, users, security groups, Group Policy configuration, and endpoint-level policy application were successfully implemented and validated.
 
 The Windows 11 client is now ready for continued use in the lab environment and for the infrastructure troubleshooting and validation activities documented in the following phase.
+
+⬆️ [Back to Roadmap](#lab-roadmap)
+
 
 <a id="lab-4"></a>
 # LAB 4 — Windows 11 Domain Integration & Group Policy Validation
@@ -581,7 +590,7 @@ This confirmed that the Windows 11 client was successfully synchronized with the
 
 ### Evidence
 
-![Windows Time Synchronization Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-4-windows-time-sync-validation.png) 
+![Windows Time Synchronization Validation](Assets/phase-4-windows-time-sync-validation.png) 
 
 ## DNS Troubleshooting
 
@@ -689,9 +698,9 @@ This confirmed successful communication between the Windows 11 endpoint and the 
 
 ### Evidence
 
-![Group Policy Application - GPResult](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-4-gpo-application-gpresult.png)
+![Group Policy Application - GPResult](Assets/phase-4-gpo-application-gpresult.png)
 
-![LAB-Users-Baseline Applied to Domain User](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-4-gpo-user-policy-applied.png)
+![LAB-Users-Baseline Applied to Domain User](Assets/phase-4-gpo-user-policy-applied.png)
 
 ## Final Validation
 
@@ -718,10 +727,10 @@ The client was able to resolve required DNS records, synchronize time with the d
 
 ### Evidence
 
-![Windows Time Synchronization Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-4-windows-time-sync-validation.png)
+![Windows Time Synchronization Validation](Assets/phase-4-windows-time-sync-validation.png)
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
-![Group Policy Application - GPResult](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-4-gpo-application-gpresult.png)
+![Group Policy Application - GPResult](Assets/phase-4-gpo-application-gpresult.png)
 
 ## Final Outcome
 
@@ -748,6 +757,9 @@ During this phase:
 This phase demonstrated successful Windows 11 integration with the `lab.local` Active Directory environment, including domain authentication, DNS resolution, time synchronization, and Group Policy processing.
 
 The environment is now validated and ready for the next stage of the cybersecurity lab.
+
+⬆️ [Back to Roadmap](#lab-roadmap)
+
 
 <a id="lab-5"></a>
 # LAB 5 — File Shares, NTFS Permissions and SMB Access Control
@@ -828,19 +840,19 @@ The three folders were configured according to the following access model:
 
 Members of `Lab-IT-Admins` were granted **Modify** permissions on the `IT` folder.
 
-![IT NTFS Permissions](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-ntfs-it-permissions.png)
+![IT NTFS Permissions](Assets/phase-5-ntfs-it-permissions.png)
 
 ### Helpdesk Share
 
 Members of `Lab-Helpdesk` were granted **Modify** permissions on the `Helpdesk` folder.
 
-![Helpdesk NTFS Permissions](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-ntfs-helpdesk-permissions.png)
+![Helpdesk NTFS Permissions](Assets/phase-5-ntfs-helpdesk-permissions.png)
 
 ### Public Share
 
 Members of `LAB\Standard-Users` were granted **Read & Execute** permissions on the `Public` folder.
 
-![Public NTFS Permissions](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-ntfs-public-permissions.png)
+![Public NTFS Permissions](Assets/phase-5-ntfs-public-permissions.png)
 
 ## SMB Share Configuration
 
@@ -860,13 +872,13 @@ Access restrictions were implemented through NTFS permissions, which provided th
 
 The `IT` folder was published as the `\\DC01\IT` SMB share.
 
-![IT SMB Configuration](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-smb-it-confirmation.png)
+![IT SMB Configuration](Assets/phase-5-smb-it-confirmation.png)
 
 ### Helpdesk Share
 
 The `Helpdesk` folder was published as the `\\DC01\Helpdesk` SMB share.
 
-![Helpdesk SMB Permissions](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-smb-helpdesk-permissions.png)
+![Helpdesk SMB Permissions](Assets/phase-5-smb-helpdesk-permissions.png)
 
 ### Public Share
 
@@ -876,7 +888,7 @@ The `Public` folder was published as the `\\DC01\Public` SMB share.
 
 The final validation on DC01 confirmed that the `IT`, `Helpdesk`, and `Public` SMB shares were successfully published.
 
-![SMB Shares Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-smb-shares-validation.png)
+![SMB Shares Validation](Assets/phase-5-smb-shares-validation.png)
 
 ## Access Control Testing
 
@@ -1030,19 +1042,19 @@ The following screenshots document the configuration and validation performed du
 
 ### NTFS Permissions
 
-![IT NTFS Permissions](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-ntfs-it-permissions.png)
+![IT NTFS Permissions](Assets/phase-5-ntfs-it-permissions.png)
 
-![Helpdesk NTFS Permissions](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-ntfs-helpdesk-permissions.png)
+![Helpdesk NTFS Permissions](Assets/phase-5-ntfs-helpdesk-permissions.png)
 
-![Public NTFS Permissions](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-ntfs-public-permissions.png)
+![Public NTFS Permissions](Assets/phase-5-ntfs-public-permissions.png)
 
 ### SMB Configuration
 
-![IT SMB Configuration](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-smb-it-confirmation.png)
+![IT SMB Configuration](Assets/phase-5-smb-it-confirmation.png)
 
-![Helpdesk SMB Permissions](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-smb-helpdesk-permissions.png)
+![Helpdesk SMB Permissions](Assets/phase-5-smb-helpdesk-permissions.png)
 
-![SMB Shares Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-5-smb-shares-validation.png)
+![SMB Shares Validation](Assets/phase-5-smb-shares-validation.png)
 
 ### Access Control Tests
 
@@ -1067,6 +1079,9 @@ The final environment demonstrates how Active Directory groups, NTFS permissions
 **LAB 5 — COMPLETED** ✅
 
 The SMB file shares, NTFS permissions, Active Directory group-based access control, and access validation tests were successfully implemented and verified.
+
+⬆️ [Back to Roadmap](#lab-roadmap)
+
 
 <a id="lab-6"></a>
 # LAB 6 — Networking & Troubleshooting
@@ -1227,7 +1242,7 @@ The firewall state was reviewed before continuing with the service and port vali
 
 ### Evidence
 
-![Windows Firewall Status](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-6-windows-firewall-status.png)
+![Windows Firewall Status](Assets/phase-6-windows-firewall-status.png)
 
 ### Validation
 
@@ -1285,7 +1300,7 @@ The validation confirmed that Nmap was installed correctly and that Npcap was av
 
 ### Evidence
 
-![Nmap Installation and Version](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-6-nmap-installation-version.png)
+![Nmap Installation and Version](Assets/phase-6-nmap-installation-version.png)
 
 ### DC01 Service Discovery
 
@@ -1466,6 +1481,9 @@ This phase demonstrated practical troubleshooting skills involving Windows netwo
 
 The laboratory environment is now ready for the next stage of the cybersecurity lab.
 
+⬆️ [Back to Roadmap](#lab-roadmap)
+
+
 <a id="lab-7"></a>
 # LAB 7 — Windows Security & Hardening
 
@@ -1570,7 +1588,7 @@ The initial baseline confirmed that the main Microsoft Defender protection compo
 
 ### Evidence
 
-![Microsoft Defender Status Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-defender-status-baseline.png) 
+![Microsoft Defender Status Baseline](Assets/phase-7-defender-status-baseline.png) 
 
 ### Defender Preferences
 
@@ -1595,7 +1613,7 @@ Relevant findings included:
 
 ### Evidence
 
-![Microsoft Defender Preferences Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-defender-preferences-baseline.png)
+![Microsoft Defender Preferences Baseline](Assets/phase-7-defender-preferences-baseline.png)
 
 
 
@@ -1643,7 +1661,7 @@ This confirmed that Network Protection was successfully enabled.
 
 ### Evidence
 
-![Network Protection Hardening](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-network-protection-hardening.png)
+![Network Protection Hardening](Assets/phase-7-network-protection-hardening.png)
 
 
 
@@ -1685,7 +1703,7 @@ This confirmed that removable drive scanning was no longer disabled.
 
 ### Evidence
 
-![Removable Drive Scanning Hardening](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-removable-drive-scanning-hardening.png)
+![Removable Drive Scanning Hardening](Assets/phase-7-removable-drive-scanning-hardening.png)
 
 ### Potentially Unwanted Application Protection
 
@@ -1707,7 +1725,7 @@ The Windows Security interface also confirmed that protection against potentiall
 
 ### Evidence — Initial Configuration
 
-![PUA Protection Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-pua-protection-baseline.png)
+![PUA Protection Baseline](Assets/phase-7-pua-protection-baseline.png)
 
 PUA Protection was enabled using:
 
@@ -1731,7 +1749,7 @@ This changed PUA Protection from Audit Mode to Block Mode.
 
 ### Evidence — Hardening
 
-![PUA Protection Hardening](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-pua-protection-hardening.png)
+![PUA Protection Hardening](Assets/phase-7-pua-protection-hardening.png)
 
 ### Defender Hardening Summary
 
@@ -1776,7 +1794,7 @@ PUAProtection                  : 1
 
 These results confirmed that the three selected Defender hardening measures were successfully applied.
 
-![Microsoft Defender Preferences Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-defender-preferences-baseline.png)
+![Microsoft Defender Preferences Baseline](Assets/phase-7-defender-preferences-baseline.png)
 
 ## Windows Firewall Hardening
 
@@ -1804,7 +1822,7 @@ The default inbound and outbound actions were reported as `NotConfigured`. There
 
 ### Evidence
 
-![Windows Firewall Profiles](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-profiles-final.png)
+![Windows Firewall Profiles](Assets/phase-7-firewall-profiles-final.png)
 
 
 ### Remote Desktop (RDP)
@@ -1831,7 +1849,7 @@ No changes were required.
 
 ### Evidence
 
-![Remote Desktop Firewall Rules](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-rdp-baseline.png)
+![Remote Desktop Firewall Rules](Assets/phase-7-firewall-rdp-baseline.png)
 
 ### Windows Remote Management (WinRM)
 
@@ -1856,7 +1874,7 @@ Keeping these inbound WinRM rules disabled reduces unnecessary remote administra
 
 ### Evidence
 
-![WinRM Firewall Rules](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-winrm-baseline.png)
+![WinRM Firewall Rules](Assets/phase-7-firewall-winrm-baseline.png)
 
 ### SMB Firewall Rules
 
@@ -1884,7 +1902,7 @@ No firewall changes were required.
 
 ### Evidence
 
-![SMB Firewall Rules](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-smb-rules.png)
+![SMB Firewall Rules](Assets/phase-7-firewall-smb-rules.png)
 
 ### ICMPv4 Inbound Rules
 
@@ -1910,7 +1928,7 @@ No changes were required.
 
 ### Evidence
 
-![ICMPv4 Firewall Rules](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-icmp-baseline.png)
+![ICMPv4 Firewall Rules](Assets/phase-7-firewall-icmp-baseline.png)
 
 ### Firewall Hardening Summary
 
@@ -1954,7 +1972,7 @@ This confirmed that `WIN11-CLIENT01` could still establish a TCP connection to t
 
 ### Evidence
 
-![SMB Port 445 Post-Hardening Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-smb-post-hardening-validation.png)
+![SMB Port 445 Post-Hardening Validation](Assets/phase-7-smb-post-hardening-validation.png)
 
 ## Security Policies & Auditing
 
@@ -2052,7 +2070,7 @@ No changes were made to these policies because the objective of this stage was t
 
 ### Evidence
 
-![Advanced Audit Policy - Account Logon](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-advanced-audit-account-logon.png)
+![Advanced Audit Policy - Account Logon](Assets/phase-7-advanced-audit-account-logon.png)
 
 ### Audit Policy Review
 
@@ -2202,7 +2220,7 @@ This confirmed that the Print Spooler service was successfully stopped and confi
 
 ### Evidence
 
-![Print Spooler Hardening](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-print-spooler-hardening.png)
+![Print Spooler Hardening](Assets/phase-7-print-spooler-hardening.png)
 
 ### SSDP Service Review
 
@@ -2261,7 +2279,7 @@ All critical services were confirmed to be running.
 
 ### Evidence
 
-![Critical Services Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-critical-services-validation.png)
+![Critical Services Validation](Assets/phase-7-critical-services-validation.png)
 
 ### Group Policy Service Validation
 
@@ -2314,7 +2332,7 @@ This confirmed that Group Policy processing remained operational after the harde
 
 ### Evidence
 
-![Group Policy Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-gpo-validation.png)
+![Group Policy Validation](Assets/phase-7-gpo-validation.png)
 
 ### 8.6 Services Hardening Summary
 
@@ -2386,7 +2404,7 @@ Windows Defender Firewall was therefore confirmed to be enabled on all three net
 
 ### Evidence
 
-![Windows Firewall Profiles Final](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-profiles-final.png)
+![Windows Firewall Profiles Final](Assets/phase-7-firewall-profiles-final.png)
 
 ### SMB Connectivity Validation
 
@@ -2411,7 +2429,7 @@ The successful result confirmed that the client could still establish TCP connec
 
 ### Evidence
 
-![SMB Port 445 Post-Hardening Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-smb-post-hardening-validation.png)
+![SMB Port 445 Post-Hardening Validation](Assets/phase-7-smb-post-hardening-validation.png)
 
 ### DNS Resolution Validation
 
@@ -2496,7 +2514,7 @@ The computer was identified as a member of the `LAB` domain.
 
 ### Evidence
 
-![Group Policy Post-Hardening Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-gpo-post-hardening-validation.png)
+![Group Policy Post-Hardening Validation](Assets/phase-7-gpo-post-hardening-validation.png)
 
 ---
 
@@ -2529,7 +2547,7 @@ All critical services were confirmed to be running.
 
 ### Evidence
 
-![Critical Services Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-critical-services-validation.png)
+![Critical Services Validation](Assets/phase-7-critical-services-validation.png)
 
 ### Active Directory Secure Channel Validation
 
@@ -2719,17 +2737,17 @@ The following evidence documents the Defender configuration and hardening proces
 
 ### Evidence
 
-![Microsoft Defender Status Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-defender-status-baseline.png)
+![Microsoft Defender Status Baseline](Assets/phase-7-defender-status-baseline.png)
 
-![Microsoft Defender Preferences Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-defender-preferences-baseline.png)
+![Microsoft Defender Preferences Baseline](Assets/phase-7-defender-preferences-baseline.png)
 
-![Network Protection Hardening](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-network-protection-hardening.png)
+![Network Protection Hardening](Assets/phase-7-network-protection-hardening.png)
 
-![Removable Drive Scanning Hardening](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-removable-drive-scanning-hardening.png)
+![Removable Drive Scanning Hardening](Assets/phase-7-removable-drive-scanning-hardening.png)
 
-![PUA Protection Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-pua-protection-baseline.png)
+![PUA Protection Baseline](Assets/phase-7-pua-protection-baseline.png)
 
-![PUA Protection Hardening](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-pua-protection-hardening.png)
+![PUA Protection Hardening](Assets/phase-7-pua-protection-hardening.png)
 
 ### Windows Firewall
 
@@ -2746,23 +2764,23 @@ The following evidence documents the firewall review and validation:
 
 ### Evidence
 
-![Windows Firewall Profiles](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-profiles-final.png)
+![Windows Firewall Profiles](Assets/phase-7-firewall-profiles-final.png)
 
-![Remote Desktop Firewall Rules](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-rdp-baseline.png)
+![Remote Desktop Firewall Rules](Assets/phase-7-firewall-rdp-baseline.png)
 
-![WinRM Firewall Rules](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-winrm-baseline.png)
+![WinRM Firewall Rules](Assets/phase-7-firewall-winrm-baseline.png)
 
-![SMB Firewall Rules](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-smb-rules.png)
+![SMB Firewall Rules](Assets/phase-7-firewall-smb-rules.png)
 
-![ICMPv4 Firewall Rules](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-firewall-icmp-baseline.png)
+![ICMPv4 Firewall Rules](Assets/phase-7-firewall-icmp-baseline.png)
 
-![SMB Port 445 Post-Hardening Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-smb-post-hardening-validation.png)
+![SMB Port 445 Post-Hardening Validation](Assets/phase-7-smb-post-hardening-validation.png)
 
 ### Security Policies & Auditing
 
 The following evidence documents the Advanced Audit Policy review:
 
-![Advanced Audit Policy - Account Logon](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-advanced-audit-account-logon.png)
+![Advanced Audit Policy - Account Logon](Assets/phase-7-advanced-audit-account-logon.png)
 
 The screenshot provides visual evidence of the Account Logon audit policy review performed during the security baseline assessment.
 
@@ -2770,11 +2788,11 @@ The screenshot provides visual evidence of the Account Logon audit policy review
 
 The following evidence documents the service hardening and validation activities:
 
-![Print Spooler Hardening](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-print-spooler-hardening.png)
+![Print Spooler Hardening](Assets/phase-7-print-spooler-hardening.png)
 
-![Critical Services Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-critical-services-validation.png)
+![Critical Services Validation](Assets/phase-7-critical-services-validation.png)
 
-![Group Policy Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-7-gpo-validation.png)
+![Group Policy Validation](Assets/phase-7-gpo-validation.png)
 
 The evidence confirms that the Print Spooler service was disabled while critical Windows and Active Directory-related services remained operational.
 
@@ -2838,6 +2856,9 @@ The final validation confirmed:
 The successful validation demonstrates that `WIN11-CLIENT01` was hardened without disrupting the core services required by the Home Lab environment.
 
 **LAB 7 — Windows Security & Hardening: COMPLETED ✅**
+
+⬆️ [Back to Roadmap](#lab-roadmap)
+
 
 <a id="lab-8"></a>
 # LAB 8 — Windows Event Logs & Monitoring
@@ -2919,7 +2940,7 @@ The baseline showed active Windows Security Auditing events, including authentic
 
 ### Evidence
 
-![Windows Security Log Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-security-log-baseline.png)
+![Windows Security Log Baseline](Assets/phase-8-security-log-baseline.png)
 
 ## Successful Authentication — Event ID 4624
 
@@ -2942,11 +2963,11 @@ The event represented a successful service logon performed by the Windows system
 
 ### Evidence
 
-![Security Event 4624](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-security-event-4624.png)
+![Security Event 4624](Assets/phase-8-security-event-4624.png)
 
 The XML representation was also reviewed to inspect the technical event fields.
 
-![Security Event 4624 XML](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-security-event-4624-xml.png)
+![Security Event 4624 XML](Assets/phase-8-security-event-4624-xml.png)
 
 ## Privileged Logon — Event ID 4672
 
@@ -2976,11 +2997,11 @@ The event was associated with the integrated Windows `SYSTEM` account.
 
 ### Evidence
 
-![Security Event 4672](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-security-event-4672.png)
+![Security Event 4672](Assets/phase-8-security-event-4672.png)
 
 The XML representation was also analyzed.
 
-![Security Event 4672 XML](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-security-event-4672-xml.png)
+![Security Event 4672 XML](Assets/phase-8-security-event-4672-xml.png)
 
 The `SubjectLogonId` value `0x3e7` was consistent with the system logon activity observed in the corresponding authentication events.
 
@@ -3011,7 +3032,7 @@ The event was therefore treated as local authentication activity rather than evi
 
 The technical XML representation was captured because it contained the relevant authentication fields.
 
-![Security Event 4625 XML](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-security-event-4625-xml.png)
+![Security Event 4625 XML](Assets/phase-8-security-event-4625-xml.png)
 
 ## Analysis of Failed Authentication Patterns
 
@@ -3058,7 +3079,7 @@ Select-Object TimeCreated, Id, ProviderName, LevelDisplayName
 
 ### Evidence
 
-![PowerShell Authentication Filter](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-powershell-authentication-filter.png)
+![PowerShell Authentication Filter](Assets/phase-8-powershell-authentication-filter.png)
 
 ## Failed Authentication — Logon Type Distribution
 
@@ -3079,7 +3100,7 @@ The three `LogonType 3` events did not contain a usable remote source IP address
 
 ### Evidence
 
-![4625 Logon Type Distribution](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-4625-logon-type-distribution.png)
+![4625 Logon Type Distribution](Assets/phase-8-4625-logon-type-distribution.png)
 
 ## Successful Authentication — Logon Type Distribution
 
@@ -3110,7 +3131,7 @@ This is consistent with service-related logon activity generated by Windows.
 
 ### Evidence
 
-![4624 Logon Type Distribution](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-4624-logon-type-distribution.png)
+![4624 Logon Type Distribution](Assets/phase-8-4624-logon-type-distribution.png)
 
 ## Remote Authentication Check
 
@@ -3164,7 +3185,7 @@ The presence of warning events was not automatically interpreted as malicious ac
 
 ### Evidence
 
-![Windows System Log Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-system-log-baseline.png)
+![Windows System Log Baseline](Assets/phase-8-system-log-baseline.png)
 
 ## Group Policy Processing — Event ID 1500
 
@@ -3184,7 +3205,7 @@ This provided evidence that Group Policy processing was functioning correctly an
 
 ### Evidence
 
-![Group Policy Event 1500](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-system-event-1500-grouppolicy.png)
+![Group Policy Event 1500](Assets/phase-8-system-event-1500-grouppolicy.png)
 
 ## Service Configuration Change — Event ID 7040
 
@@ -3204,7 +3225,7 @@ No service configuration was modified as part of this investigation. The event w
 
 ### Evidence
 
-![Service Configuration Change 7040](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-system-event-7040-bits.png)
+![Service Configuration Change 7040](Assets/phase-8-system-event-7040-bits.png)
 
 ## Application Log Baseline
 
@@ -3218,7 +3239,7 @@ The log contained recent events from sources including:
 
 ### Evidence
 
-![Windows Application Log Baseline](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-application-log-baseline.png)
+![Windows Application Log Baseline](Assets/phase-8-application-log-baseline.png)
 
 ## Application Event — Security-SPP Event ID 16384
 
@@ -3238,7 +3259,7 @@ The event did not indicate an application error or malicious activity.
 
 ### Evidence
 
-![Security-SPP Event 16384 XML](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-application-event-16384-xml.png)
+![Security-SPP Event 16384 XML](Assets/phase-8-application-event-16384-xml.png)
 
 ## Process Creation Auditing — Event ID 4688
 
@@ -3268,7 +3289,7 @@ The event was therefore treated as legitimate system activity.
 
 ### Evidence
 
-![Process Creation Event 4688](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-process-creation-4688.png)
+![Process Creation Event 4688](Assets/phase-8-process-creation-4688.png)
 
 ## Process Creation Monitoring Query
 
@@ -3296,7 +3317,7 @@ The events were grouped around system startup activity.
 
 ### Evidence
 
-![Process Creation Monitoring Query](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-8-process-creation-query.png)
+![Process Creation Monitoring Query](Assets/phase-8-process-creation-query.png)
 
 ## Controlled Process Monitoring Test
 
@@ -3428,6 +3449,9 @@ The knowledge and evidence collected in this phase will be used as the foundatio
 **LAB 9 — Security Operations**, focusing on detection, triage, indicators of compromise (IOCs), investigation, and security incident documentation.
 
 **LAB 8 — Windows Event Logs & Monitoring: COMPLETED**
+
+⬆️ [Back to Roadmap](#lab-roadmap)
+
 
 <a id="lab-9"></a>
 # LAB 9 — Security Operations
@@ -3666,7 +3690,7 @@ The purpose of the exercise was to determine what security telemetry would be ge
 
 ### Evidence
 
-![Controlled Security Simulation Artifact](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-9-suspicious-artifact.png)
+![Controlled Security Simulation Artifact](Assets/phase-9-suspicious-artifact.png)
 
 ## Security Telemetry Assessment
 
@@ -3692,7 +3716,7 @@ The investigation therefore relied on the evidence that was actually available r
 
 ### Evidence
 
-![Controlled Security Simulation Artifact](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-9-suspicious-artifact.png)
+![Controlled Security Simulation Artifact](Assets/phase-9-suspicious-artifact.png)
 
 ## Indicators of Compromise (IOCs)
 
@@ -4012,6 +4036,9 @@ The findings from this phase provide the foundation for more advanced detection,
 
 **LAB 9 — Security Operations: COMPLETED** ✅
 
+⬆️ [Back to Roadmap](#lab-roadmap)
+
+
 <a id="lab-10"></a>
 # LAB 10 — Windows Security & Sysmon
 
@@ -4073,9 +4100,9 @@ The Sysmon installation was subsequently validated before applying the custom co
 
 ### Evidence
 
-![Sysmon Installation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-installed.png)
+![Sysmon Installation](Assets/phase-10-sysmon-installed.png)
 
-![Sysmon Executable](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-executable.png)
+![Sysmon Executable](Assets/phase-10-sysmon-executable.png)
 
 ## Sysmon Configuration
 
@@ -4110,11 +4137,11 @@ The active configuration was subsequently reviewed using `sysmon -c` to confirm 
 
 ### Evidence
 
-![Sysmon Default Configuration](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-default-configuration.png)
+![Sysmon Default Configuration](Assets/phase-10-sysmon-default-configuration.png)
 
-![Sysmon Configuration Applied](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-configuration-applied.png)
+![Sysmon Configuration Applied](Assets/phase-10-sysmon-configuration-applied.png)
 
-![Sysmon Active Configuration](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-active-configuration.png)
+![Sysmon Active Configuration](Assets/phase-10-sysmon-active-configuration.png)
 
 ## Sysmon Service and Feature Validation
 
@@ -4144,7 +4171,7 @@ The validation confirmed that the Sysmon service was successfully running with t
 
 ### Evidence
 
-![Sysmon Features Enabled](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-feature-enabled.png)
+![Sysmon Features Enabled](Assets/phase-10-sysmon-feature-enabled.png)
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
 ## Process Creation — Event ID 1
@@ -4161,7 +4188,7 @@ Process creation telemetry is particularly relevant for security operations beca
 
 ### Evidence
 
-![Sysmon Process Creation - Event ID 1](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-process-create.png)
+![Sysmon Process Creation - Event ID 1](Assets/phase-10-sysmon-process-create.png)
 
 ## Network Connection — Event ID 3
 
@@ -4204,7 +4231,7 @@ File creation telemetry is relevant to security operations because newly created
 
 ### Evidence
 
-![Sysmon File Creation - Event ID 11](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-file-creation.png)
+![Sysmon File Creation - Event ID 11](Assets/phase-10-sysmon-file-creation.png)
 
 ## Registry Key Creation — Event ID 12
 
@@ -4226,7 +4253,7 @@ The event was therefore validated as part of the endpoint telemetry collection p
 
 ### Evidence
 
-![Sysmon Registry Key Creation - Event ID 12](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-event-12-registry-key.png)
+![Sysmon Registry Key Creation - Event ID 12](Assets/phase-10-sysmon-event-12-registry-key.png)
 
 ## Registry Value Set — Event ID 13
 
@@ -4256,7 +4283,7 @@ Registry value monitoring is relevant to security operations because modificatio
 
 ### Evidence
 
-![Sysmon Registry Value Set - Event ID 13](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-10-sysmon-event-13-registry-value-set.png)
+![Sysmon Registry Value Set - Event ID 13](Assets/phase-10-sysmon-event-13-registry-value-set.png)
 
 ## Registry Rename — Event ID 14
 
@@ -4667,6 +4694,9 @@ The next phase will build on this endpoint telemetry by introducing Wazuh and mo
 
 **LAB 10 — WINDOWS SECURITY & SYSMON: COMPLETED ✅**
 
+⬆️ [Back to Roadmap](#lab-roadmap)
+
+
 <a id="lab-11"></a>
 # LAB 11 — Wazuh SIEM, Detection Engineering & Security Monitoring
 
@@ -4825,13 +4855,13 @@ Administrative access to the Linux server was performed remotely from WIN11-CLIE
 
 ### Evidence
 
-![WIN11 to WAZUH SSH Remote Administration](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WIN11-to-WAZUH-SSH-Remote-Administration.png)
+![WIN11 to WAZUH SSH Remote Administration](Assets/phase-11-WIN11-to-WAZUH-SSH-Remote-Administration.png)
 
 SSH was subsequently hardened by disabling password-based authentication, disabling root login, disabling X11 forwarding and limiting authentication attempts.
 
 ### Evidence
 
-![WAZUH SSH Hardening Completed](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-SSH-Hardening-Completed.png) 
+![WAZUH SSH Hardening Completed](Assets/phase-11-WAZUH-SSH-Hardening-Completed.png) 
 
 This architecture provides the foundation for centralized event collection, threat hunting, detection engineering, alert investigation and controlled security validation throughout LAB 11.
 
@@ -4971,11 +5001,11 @@ The Wazuh Agent was installed and configured on `WIN11-CLIENT01`.
 
 The agent was successfully registered with the Wazuh Manager and appeared in the Wazuh Dashboard with the expected endpoint information.
 
-![WAZUH WIN11 Agent Deployment Configuration](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-WIN11-Agent-Deployment-Configuration.png)
+![WAZUH WIN11 Agent Deployment Configuration](Assets/phase-11-WAZUH-WIN11-Agent-Deployment-Configuration.png)
 
 The agent overview confirmed the endpoint identity and its integration with the Wazuh Manager.
 
-![WAZUH WIN11 Agent Overview](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-WIN11-Agent-Overview.png)
+![WAZUH WIN11 Agent Overview](Assets/phase-11-WAZUH-WIN11-Agent-Overview.png)
 
 ### Agent Connectivity
 
@@ -4983,7 +5013,7 @@ After configuration, the Wazuh Agent established communication with the Wazuh Ma
 
 The Dashboard reported the agent as connected, confirming that the endpoint was actively communicating with the centralized monitoring infrastructure.
 
-![WAZUH WIN11 Agent Connected](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-WIN11-Agent-Connected.png)
+![WAZUH WIN11 Agent Connected](Assets/phase-11-WAZUH-WIN11-Agent-Connected.png)
 
 This established the communication path:
 
@@ -5059,7 +5089,7 @@ Windows Process Creation auditing was enabled on `WIN11-CLIENT01` to provide add
 
 A controlled execution of `notepad.exe` was used to verify that process creation events were being collected by Wazuh.
 
-![WAZUH WIN11 Process Creation 4688 Notepad Process](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-WIN11-Process-Creation-4688-Notepad-Process.png)
+![WAZUH WIN11 Process Creation 4688 Notepad Process](Assets/phase-11-WAZUH-WIN11-Process-Creation-4688-Notepad-Process.png)
 
 The event provided information about the newly created process, the associated user and the recorded process execution context.
 
@@ -5195,7 +5225,7 @@ The observed interval between the first and third relevant events was approximat
 
 ### Evidence
 
-![WAZUH Detection Engineering Brute Force Rule 100501](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Brute-Force-Rule-100501.png) 
+![WAZUH Detection Engineering Brute Force Rule 100501](Assets/phase-11-WAZUH-Detection-Engineering-Brute-Force-Rule-100501.png) 
 
 ### Technical Event Analysis
 
@@ -5222,7 +5252,7 @@ The 127.0.0.1 source address represents the local loopback interface of WIN11-CL
 The target account, domain, workstation and Windows Security event context were also reviewed.
 
 ### Evidence
-![WAZUH Detection Engineering 4625 Technical Event Fields](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-4625-Technical-Event-Fields.png) 
+![WAZUH Detection Engineering 4625 Technical Event Fields](Assets/phase-11-WAZUH-Detection-Engineering-4625-Technical-Event-Fields.png) 
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
 ### Rule Correlation Details
@@ -5242,7 +5272,7 @@ The alert also contained the previous matching events, providing evidence that t
 
 ### Evidence
 
-![WAZUH Detection Engineering Rule 100501 Correlation Details](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Rule-100501-Correlation-Details.png)
+![WAZUH Detection Engineering Rule 100501 Correlation Details](Assets/phase-11-WAZUH-Detection-Engineering-Rule-100501-Correlation-Details.png)
 
 
 ### Detection Dashboard Validation
@@ -5263,7 +5293,7 @@ The successful execution of rule 100501 demonstrates that the laboratory Wazuh d
 The detection should be interpreted as a possible brute-force pattern, not as definitive proof of a malicious attack. In this laboratory, the events were intentionally generated as a controlled security test and originated locally from WIN11-CLIENT01.
 
 ### Evidence
-![WAZUH Detection Engineering Dashboard Alert Overview](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Dashboard-Alert-Overview.png)
+![WAZUH Detection Engineering Dashboard Alert Overview](Assets/phase-11-WAZUH-Detection-Engineering-Dashboard-Alert-Overview.png)
 
 
 ### Security Investigation & Incident Analysis
@@ -5282,7 +5312,7 @@ The investigation confirmed that the alert was generated after three matching au
 
 ### Evidence
 
-![WAZUH Detection Engineering Rule 100501 Correlation Details](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Rule-100501-Correlation-Details.png)
+![WAZUH Detection Engineering Rule 100501 Correlation Details](Assets/phase-11-WAZUH-Detection-Engineering-Rule-100501-Correlation-Details.png)
 
 ### Authentication Context
 
@@ -5309,7 +5339,7 @@ Logon Type `2` represents an interactive logon. Combined with the local loopback
 
 ### Evidence
 
-![WAZUH Detection Engineering 4625 Technical Event Fields](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-4625-Technical-Event-Fields.png)
+![WAZUH Detection Engineering 4625 Technical Event Fields](Assets/phase-11-WAZUH-Detection-Engineering-4625-Technical-Event-Fields.png)
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
 ### Timeline Analysis
@@ -5399,7 +5429,7 @@ The final validation confirmed an operational Wazuh Manager with the expected an
 
 ### Evidence
 
-![WAZUH Final Manager Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Final-Manager-Validation.png)
+![WAZUH Final Manager Validation](Assets/phase-11-WAZUH-Final-Manager-Validation.png)
 
 ### 11.2 Windows Endpoint Validation
 
@@ -5409,9 +5439,9 @@ The endpoint generated and transmitted representative Windows security events, c
 
 ### Evidence
 
-![WAZUH WIN11 Agent Connected](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-WIN11-Agent-Connected.png)
+![WAZUH WIN11 Agent Connected](Assets/phase-11-WAZUH-WIN11-Agent-Connected.png)
 
-![WAZUH WIN11 Security Events Received](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-WIN11-Security-Events-Received.png)
+![WAZUH WIN11 Security Events Received](Assets/phase-11-WAZUH-WIN11-Security-Events-Received.png)
 
 ### Windows Security Event Validation
 
@@ -5427,7 +5457,7 @@ The validated events included:
 ### Evidence
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
-![WAZUH WIN11 Process Creation 4688 Notepad Process](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-WIN11-Process-Creation-4688-Notepad-Process.png)
+![WAZUH WIN11 Process Creation 4688 Notepad Process](Assets/phase-11-WAZUH-WIN11-Process-Creation-4688-Notepad-Process.png)
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
 ### Custom Detection Validation
@@ -5440,7 +5470,7 @@ The custom rule subsequently generated a Level 12 alert.
 
 ### Evidence
 
-![WAZUH Detection Engineering Brute Force Rule 100501](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Brute-Force-Rule-100501.png)
+![WAZUH Detection Engineering Brute Force Rule 100501](Assets/phase-11-WAZUH-Detection-Engineering-Brute-Force-Rule-100501.png)
 
 ### Detection Correlation Validation
 
@@ -5456,7 +5486,7 @@ The alert showed:
 
 ### Evidence
 
-![WAZUH Detection Engineering Rule 100501 Correlation Details](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Rule-100501-Correlation-Details.png)
+![WAZUH Detection Engineering Rule 100501 Correlation Details](Assets/phase-11-WAZUH-Detection-Engineering-Rule-100501-Correlation-Details.png)
 
 ### Detection Dashboard Validation
 
@@ -5466,7 +5496,7 @@ The dashboard showed the Level 12 detection together with the authentication-fai
 
 ### Evidence
 
-![WAZUH Detection Engineering Dashboard Alert Overview](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Dashboard-Alert-Overview.png)
+![WAZUH Detection Engineering Dashboard Alert Overview](Assets/phase-11-WAZUH-Detection-Engineering-Dashboard-Alert-Overview.png)
 
 ### Final Validation Results
 
@@ -5530,7 +5560,7 @@ The collected telemetry provided sufficient context to investigate authenticatio
 ### Evidence
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
-![WAZUH Detection Engineering 4625 Technical Event Fields](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-4625-Technical-Event-Fields.png)
+![WAZUH Detection Engineering 4625 Technical Event Fields](Assets/phase-11-WAZUH-Detection-Engineering-4625-Technical-Event-Fields.png)
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
 ### Endpoint Activity Monitoring
@@ -5547,7 +5577,7 @@ These events can provide additional context during security investigations by he
 
 ### Evidence
 
-![WAZUH WIN11 Process Creation 4688 Notepad Process](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-WIN11-Process-Creation-4688-Notepad-Process.png)
+![WAZUH WIN11 Process Creation 4688 Notepad Process](Assets/phase-11-WAZUH-WIN11-Process-Creation-4688-Notepad-Process.png)
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
 ### Detection Engineering Capability
@@ -5568,9 +5598,9 @@ The rule was tested using a controlled laboratory scenario and successfully gene
 
 ### Evidence
 
-![WAZUH Detection Engineering Brute Force Rule 100501](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Brute-Force-Rule-100501.png)
+![WAZUH Detection Engineering Brute Force Rule 100501](Assets/phase-11-WAZUH-Detection-Engineering-Brute-Force-Rule-100501.png)
 
-![WAZUH Detection Engineering Rule 100501 Correlation Details](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Rule-100501-Correlation-Details.png)
+![WAZUH Detection Engineering Rule 100501 Correlation Details](Assets/phase-11-WAZUH-Detection-Engineering-Rule-100501-Correlation-Details.png)
 
 ### Security Investigation Capability
 
@@ -5599,7 +5629,7 @@ The scenario was intentionally generated as a controlled laboratory test and the
 
 ### Evidence
 
-![WAZUH Detection Engineering Dashboard Alert Overview](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-11-WAZUH-Detection-Engineering-Dashboard-Alert-Overview.png)
+![WAZUH Detection Engineering Dashboard Alert Overview](Assets/phase-11-WAZUH-Detection-Engineering-Dashboard-Alert-Overview.png)
 
 ### Detection Limitations
 
@@ -5721,6 +5751,9 @@ The laboratory successfully demonstrates a functional SIEM implementation capabl
 All core objectives defined for LAB 11 were achieved and validated through controlled testing and documented evidence.
 
 Future activities such as automated containment, endpoint isolation, account blocking, remediation and recovery testing will be developed as separate security-testing extensions rather than being required for completion of this laboratory phase.
+
+⬆️ [Back to Roadmap](#lab-roadmap)
+
 
 <a id="lab-12"></a>
 # LAB 12 — Vulnerability Management
@@ -5874,7 +5907,7 @@ The exposed services were consistent with a Windows domain-joined workstation.
 
 ### Evidence
 
-![WIN11 Vulnerability Scan](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-WIN11-Vulnerability-Scan.png)
+![WIN11 Vulnerability Scan](Assets/phase-12-WIN11-Vulnerability-Scan.png)
 
 ### WAZUH-SERVER Service Enumeration
 
@@ -5893,7 +5926,7 @@ No vulnerability was inferred solely from the presence of these services.
 
 ### Evidence
 
-![Wazuh Service Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-WAZUH-Service-Assessment.png)
+![Wazuh Service Assessment](Assets/phase-12-WAZUH-Service-Assessment.png)
 
 ## Vulnerability Scanning
 
@@ -5927,7 +5960,7 @@ The endpoint remained consistent with the previously established Windows securit
 
 ### Evidence
 
-![WIN11 Vulnerability Scan](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-WIN11-Vulnerability-Scan.png)
+![WIN11 Vulnerability Scan](Assets/phase-12-WIN11-Vulnerability-Scan.png)
 
 ## WAZUH Vulnerability Assessment
 
@@ -5953,7 +5986,7 @@ SMBv1 was therefore not available on the domain controller, while SMB signing wa
 
 ### Evidence
 
-![DC01 SMB Security Configuration](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-DC01-SMB-Security-Configuration.png)
+![DC01 SMB Security Configuration](Assets/phase-12-DC01-SMB-Security-Configuration.png)
 
 
 ## WinRM Configuration
@@ -5984,7 +6017,7 @@ The assessment identified LDAPServerIntegrity = 1, indicating that LDAP signing 
 This was therefore recorded as a potential security hardening finding requiring risk assessment.
 
 ### Evidence
-![DC01 LDAP Security Configuration](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-DC01-LDAP-Security-Configuration.png)
+![DC01 LDAP Security Configuration](Assets/phase-12-DC01-LDAP-Security-Configuration.png)
 
 
 ## LDAPS Certificate Assessment
@@ -6022,7 +6055,7 @@ The installed OpenSSH version was:
 No immediate confirmed vulnerability was established from the installed OpenSSH version during the assessment.
 
 ### Evidence
-![Wazuh Software Version Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-WAZUH-Software-Version-Assessment.png)
+![Wazuh Software Version Assessment](Assets/phase-12-WAZUH-Software-Version-Assessment.png)
 
 ## Windows Server Patch Level
 
@@ -6036,7 +6069,7 @@ UBR 32230
 The installed update history was reviewed as part of the vulnerability assessment.
 
 ### Evidence
-![DC01 Patch Level Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-DC01-Patch-Level-Assessment.png)
+![DC01 Patch Level Assessment](Assets/phase-12-DC01-Patch-Level-Assessment.png)
 
 ## Vulnerability Identification
 
@@ -6190,7 +6223,7 @@ while the domain controller was running:
 Multiple controlled installation methods were attempted.
 
 ### Evidence
-![DC01 Patch Level Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-DC01-Patch-Level-Assessment.png)
+![DC01 Patch Level Assessment](Assets/phase-12-DC01-Patch-Level-Assessment.png)
 
 ## Windows Update Troubleshooting
 
@@ -6327,7 +6360,7 @@ This illustrates an important part of vulnerability management: an automated sca
 
 ### Evidence
 
-![DC01 re-scan reporting a likely Slowloris vulnerability](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-DC01-Rescan-Slowloris-Likely-Vulnerable.png)
+![DC01 re-scan reporting a likely Slowloris vulnerability](Assets/phase-12-DC01-Rescan-Slowloris-Likely-Vulnerable.png)
 
 ### WIN11 Re-scan
 
@@ -6374,7 +6407,7 @@ filebeat         active
 This confirmed that the firmware remediation remained in place after the VM restart and that the Wazuh platform was operational.
 
 ### Evidence 
-![WAZUH firmware and service final validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-WAZUH-Firmware-Final-Validation.png) 
+![WAZUH firmware and service final validation](Assets/phase-12-WAZUH-Firmware-Final-Validation.png) 
 
 ### DC01 Post-Incident Validation
 
@@ -6394,7 +6427,7 @@ W32Time   Running
 This confirmed that the VMware incident did not leave the domain controller in an unusable state.
 
 ### Evidence 
-![DC01 post-incident service and domain validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-12-DC01-Post-Incident-Validation.png)
+![DC01 post-incident service and domain validation](Assets/phase-12-DC01-Post-Incident-Validation.png)
 
 ### DC01 Post-Incident Validation
 
@@ -6585,6 +6618,8 @@ This reflects a realistic security operations workflow where findings must be in
 
 **LAB 12 — COMPLETED ✅**
 
+⬆️ [Back to Roadmap](#lab-roadmap)
+
 <a id="lab-13"></a>
 # LAB 13 — Backup, Recovery & Security Testing
 
@@ -6665,7 +6700,7 @@ LAB13-Backup/
 The backup repository was intentionally kept separate from the active VM storage.
 
 ### Evidence 
-![Wazuh Backup Structure](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Structure.png) 
+![Wazuh Backup Structure](Assets/phase-13-WAZUH-Backup-Structure.png) 
 
 ## DC01 — Windows Server Backup
 
@@ -6702,7 +6737,7 @@ System State
 
 ### Evidence 
 
-![DC01 System State Backup Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-DC01-SystemState-Backup-Validation.png)
+![DC01 System State Backup Validation](Assets/phase-13-DC01-SystemState-Backup-Validation.png)
 
 ### Backup Contents
 
@@ -6724,7 +6759,7 @@ The presence of the NTDS component confirms that the System State backup contain
 
 ### Evidence 
 
-![DC01 System State Backup Contents](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-DC01-SystemState-Backup-Contents.png)
+![DC01 System State Backup Contents](Assets/phase-13-DC01-SystemState-Backup-Contents.png)
 
 ## WAZUH-SERVER — Backup
 
@@ -6744,7 +6779,7 @@ Those queues were not copied as part of the primary recovery set because they co
 Configuration and security-relevant data were backed up separately.
 
 ### Evidence 
-![Wazuh Configuration Inventory](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Configuration-Inventory.png) 
+![Wazuh Configuration Inventory](Assets/phase-13-WAZUH-Configuration-Inventory.png) 
 
 
 ## Configuration
@@ -6765,7 +6800,7 @@ WAZUH-SERVER/Configuration/
 
 ### Evidence 
 
-![Wazuh Backup Configuration](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Configuration.png)
+![Wazuh Backup Configuration](Assets/phase-13-WAZUH-Backup-Configuration.png)
 
 ## RBAC Database
 
@@ -6777,7 +6812,7 @@ Configuration/Database/rbac.db
 The backup file was approximately 100 KB.
 
 ### Evidence 
-![Wazuh RBAC Database Backup](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-RBAC-Database.png)
+![Wazuh RBAC Database Backup](Assets/phase-13-WAZUH-Backup-RBAC-Database.png)
 
 
 ## Custom Rules
@@ -6793,7 +6828,7 @@ These files contain the custom detection logic developed during the Wazuh lab.
 
 ### Evidence 
 
-![Wazuh Backup Rules](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Rules.png)
+![Wazuh Backup Rules](Assets/phase-13-WAZUH-Backup-Rules.png)
 
 ## Custom Decoders
 
@@ -6805,7 +6840,7 @@ local_decoder.xml
 
 ### Evidence 
 
-![Wazuh Backup Decoders](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Decoders.png)
+![Wazuh Backup Decoders](Assets/phase-13-WAZUH-Backup-Decoders.png)
 
 ## Certificates and Sensitive Material
 
@@ -6848,7 +6883,7 @@ The log structure included alert, API, archive, firewall, and Wazuh service logs
 
 ### Evidence 
 
-![Wazuh Backup Logs](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Logs.png)
+![Wazuh Backup Logs](Assets/phase-13-WAZUH-Backup-Logs.png)
 
 ### DC01 Post-Reboot Validation
 
@@ -6867,7 +6902,7 @@ OK
 `wbadmin get versions` successfully detected the previously created System State backup.
 
 ### Evidence 
-![DC01 Backup Post-Reboot Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-DC01-Backup-Post-Reboot-Validation.png)
+![DC01 Backup Post-Reboot Validation](Assets/phase-13-DC01-Backup-Post-Reboot-Validation.png)
 
 The backup contents were then queried again with `wbadmin get items`.
 
@@ -6875,7 +6910,7 @@ Active Directory, SYSVOL/FRS, Registry, EFI, and the C: volume remained identifi
 
 ### Evidence 
 
-![DC01 Backup Contents Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-DC01-Backup-Contents-Validation.png)
+![DC01 Backup Contents Validation](Assets/phase-13-DC01-Backup-Contents-Validation.png)
 
 ### Wazuh Repository Validation
 
@@ -6915,13 +6950,13 @@ Rules/
 
 ### Evidence 
 
-![Wazuh Backup Repository Post-Reboot Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Repository-Post-Reboot-Validation.png)
+![Wazuh Backup Repository Post-Reboot Validation](Assets/phase-13-WAZUH-Backup-Repository-Post-Reboot-Validation.png)
 
-![Wazuh Backup Disk Detection](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Disk-Detection.png)
+![Wazuh Backup Disk Detection](Assets/phase-13-WAZUH-Backup-Disk-Detection.png)
 
-![Wazuh Backup Disk Mounted](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Disk-Mounted.png)
+![Wazuh Backup Disk Mounted](Assets/phase-13-WAZUH-Backup-Disk-Mounted.png)
 
-![Wazuh Backup Repository Structure](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Repository-Structure.png)
+![Wazuh Backup Repository Structure](Assets/phase-13-WAZUH-Backup-Repository-Structure.png)
 
 ### Configuration and Certificate Validation
 
@@ -6931,7 +6966,7 @@ Certificate files were also verified in their respective Public and Sensitive di
 
 ### Evidence 
 
-![Wazuh Backup Configuration Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Configuration-Validation.png)
+![Wazuh Backup Configuration Validation](Assets/phase-13-WAZUH-Backup-Configuration-Validation.png)
 
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
 **Public evidence note:** The original screenshot was intentionally omitted from the public repository because it may contain internal laboratory network information, account identifiers, or sensitive security configuration details. The validation was performed as documented, but the screenshot is not included in the public version.
@@ -6956,7 +6991,7 @@ All calculated hashes matched exactly.
 This confirmed that the selected configuration data remained unchanged between the live system and the backup repository.
 
 ### Evidence 
-![Wazuh Backup Hash Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Backup-Hash-Validation.png)
+![Wazuh Backup Hash Validation](Assets/phase-13-WAZUH-Backup-Hash-Validation.png)
 
 ## Recovery / Restore
 
@@ -7006,7 +7041,7 @@ Integrity confirmed
 
 ### Evidence 
 
-![Wazuh Recovery Hash Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Recovery-Hash-Validation.png)
+![Wazuh Recovery Hash Validation](Assets/phase-13-WAZUH-Recovery-Hash-Validation.png)
 
 ## Recovery Validation
 
@@ -7025,7 +7060,7 @@ No failed systemd units were reported.
 
 ### Evidence 
 
-![Wazuh Recovery Post-Test Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Recovery-Post-Test-Validation.png)
+![Wazuh Recovery Post-Test Validation](Assets/phase-13-WAZUH-Recovery-Post-Test-Validation.png)
 
 Wazuh's internal status was also checked.
 
@@ -7046,7 +7081,7 @@ wazuh-apid
 Modules that were not part of the active lab configuration remained stopped.
 
 ### Evidence 
-![Wazuh Recovery Functional Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-13-WAZUH-Recovery-Functional-Validation.png)
+![Wazuh Recovery Functional Validation](Assets/phase-13-WAZUH-Recovery-Functional-Validation.png)
 
 ## Security Testing
 
@@ -7281,6 +7316,8 @@ WIN11-CLIENT01 remains rebuildable rather than fully imaged, which is an intenti
 Overall, the lab demonstrated an important security principle: a backup is only useful when it can be **found, accessed, validated, recovered, and verified**.
 
 **LAB 13 — Backup, Recovery & Security Testing: COMPLETED**
+
+⬆️ [Back to Roadmap](#lab-roadmap)
 
 <a id="lab-14"></a>
 # LAB 14 — Windows Security & Hardening
@@ -7576,7 +7613,7 @@ This provides an important layer of protection for inbound and outbound network 
 
 ### Evidence
 
-![WIN11 Firewall Profile Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-WIN11-Firewall-Profile-Assessment.png)
+![WIN11 Firewall Profile Assessment](Assets/phase-14-WIN11-Firewall-Profile-Assessment.png)
 
 The firewall configuration was considered **Compliant** for the current laboratory environment.
 
@@ -7588,7 +7625,7 @@ NetBIOS Session Service is associated with legacy Windows networking and SMB-rel
 
 ### Evidence
 
-![WIN11 NetBIOS Configuration Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-WIN11-NetBIOS-Configuration-Assessment.png)
+![WIN11 NetBIOS Configuration Assessment](Assets/phase-14-WIN11-NetBIOS-Configuration-Assessment.png)
 
 The configuration was documented as part of the network security assessment.
 
@@ -7602,7 +7639,7 @@ The assessment considered the security configuration associated with SMB communi
 
 ### Evidence
 
-![DC01 SMB Security Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-DC01-SMB-Security-Assessment.png)
+![DC01 SMB Security Assessment](Assets/phase-14-DC01-SMB-Security-Assessment.png)
 
 The SMB configuration was considered **Good / Controlled** for the current laboratory environment.
 
@@ -7647,7 +7684,7 @@ The security status showed that Microsoft Defender was active and providing prot
 
 ### Evidence
 
-![WIN11 Defender Security Status](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-WIN11-Defender-Security-Status.png)
+![WIN11 Defender Security Status](Assets/phase-14-WIN11-Defender-Security-Status.png)
 
 The Defender configuration was considered **Compliant** for the current laboratory environment.
 
@@ -7659,7 +7696,7 @@ The validation confirmed that the relevant Defender services were operational on
 
 ### Evidence
 
-![WIN11 Defender Services Validation](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-WIN11-Defender-Services-Validation.png)
+![WIN11 Defender Services Validation](Assets/phase-14-WIN11-Defender-Services-Validation.png)
 
 Maintaining these services in an operational state is important because disabling or stopping security components could significantly reduce endpoint protection.
 
@@ -7669,7 +7706,7 @@ The Defender security intelligence configuration was reviewed to confirm that th
 
 ### Evidence
 
-![WIN11 Defender Signature Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-WIN11-Defender-Signature-Assessment.png)
+![WIN11 Defender Signature Assessment](Assets/phase-14-WIN11-Defender-Signature-Assessment.png)
 
 The result was considered acceptable for the assessment.
 
@@ -7683,7 +7720,7 @@ The purpose was to identify whether the system presented an obvious patching gap
 
 ### Evidence
 
-![WIN11 OS Patch Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-WIN11-OS-Patch-Assessment.png)
+![WIN11 OS Patch Assessment](Assets/phase-14-WIN11-OS-Patch-Assessment.png)
 
 No critical patching issue requiring immediate remediation was identified during this review.
 
@@ -7695,7 +7732,7 @@ Microsoft Defender was also reviewed on the domain controller to verify that ser
 
 ### Evidence
 
-![DC01 Defender Security Status](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-DC01-Defender-Security-Status.png)
+![DC01 Defender Security Status](Assets/phase-14-DC01-Defender-Security-Status.png)
 
 The Defender protection status on `DC01` was considered **Compliant** for the current laboratory environment.
 
@@ -7707,7 +7744,7 @@ The security intelligence status on `DC01` was reviewed to verify that the serve
 
 ### Evidence
 
-![DC01 Defender Signature Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-DC01-Defender-Signature-Assessment.png)
+![DC01 Defender Signature Assessment](Assets/phase-14-DC01-Defender-Signature-Assessment.png)
 
 The result was considered acceptable for the current assessment.
 
@@ -7718,7 +7755,7 @@ The operating system patch status of `DC01` was also reviewed.
 The assessment focused on identifying any obvious update or patching condition that could represent an immediate security concern.
 
 ### Evidence
-![DC01 OS Patch Assessment](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-DC01-OS-Patch-Assessment.png)
+![DC01 OS Patch Assessment](Assets/phase-14-DC01-OS-Patch-Assessment.png)
 
 No critical patching issue requiring immediate remediation was identified during the assessment.
 
@@ -7766,7 +7803,7 @@ The configuration was checked using the standard PowerShell security configurati
 
 ### Evidence
 
-![DC01 PowerShell Execution Policy](Documentation/01-Windows-Server-Infrastructure/Screenshots/phase-14-DC01-PowerShell-Execution-Policy.png)
+![DC01 PowerShell Execution Policy](Assets/phase-14-DC01-PowerShell-Execution-Policy.png)
 
 The execution policy was considered acceptable for the current laboratory environment.
 
@@ -8199,5 +8236,5 @@ The next logical step is to address the identified hardening opportunities durin
 
 This completes LAB 14 — Windows Security & Hardening.
 
-
+⬆️ [Back to Roadmap](#lab-roadmap)
 
