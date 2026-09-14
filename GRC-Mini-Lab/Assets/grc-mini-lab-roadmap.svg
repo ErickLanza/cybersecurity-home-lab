@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<rect width="1400" height="900" rx="28" fill="#f7f7f7"/>
+<text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700">GRC Mini Lab — Roadmap</text>
+<text x="700" y="108" text-anchor="middle" font-family="Arial" font-size="17" fill="#555">Governance • Risk • Compliance • Control Assessment</text>
+<rect x="470" y="145" width="460" height="82" rx="18" fill="#fff" stroke="#333" stroke-width="2"/>
+<text x="700" y="180" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700">GRC Assessment</text>
+<text x="700" y="207" text-anchor="middle" font-family="Arial" font-size="15" fill="#555">Controlled cybersecurity environment</text>
+<g font-family="Arial" font-size="16" fill="#222">
+<rect x="70" y="285" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="265" y="317" text-anchor="middle" font-weight="700">01 — GRC Fundamentals &amp; Scope</text><text x="265" y="342" text-anchor="middle" font-size="14" fill="#555">Purpose • Scope • Methodology</text>
+<rect x="505" y="285" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="700" y="317" text-anchor="middle" font-weight="700">02 — Organization &amp; Asset Inventory</text><text x="700" y="342" text-anchor="middle" font-size="14" fill="#555">Assets • Owners • Criticality</text>
+<rect x="940" y="285" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="1135" y="317" text-anchor="middle" font-weight="700">03 — Risk Assessment</text><text x="1135" y="342" text-anchor="middle" font-size="14" fill="#555">Threats • Likelihood • Impact</text>
+<rect x="70" y="430" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="265" y="462" text-anchor="middle" font-weight="700">04 — Risk Register &amp; Treatment</text><text x="265" y="487" text-anchor="middle" font-size="14" fill="#555">Owners • Treatment • Status</text>
+<rect x="505" y="430" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="700" y="462" text-anchor="middle" font-weight="700">05 — Security Controls</text><text x="700" y="487" text-anchor="middle" font-size="14" fill="#555">Objectives • Controls • Evidence</text>
+<rect x="940" y="430" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="1135" y="462" text-anchor="middle" font-weight="700">06 — NIST CSF Mapping</text><text x="1135" y="487" text-anchor="middle" font-size="14" fill="#555">Functions • Categories • Evidence</text>
+<rect x="70" y="575" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="265" y="607" text-anchor="middle" font-weight="700">07 — ISO/IEC 27001 Mapping</text><text x="265" y="632" text-anchor="middle" font-size="14" fill="#555">Controls • Applicability • Evidence</text>
+<rect x="505" y="575" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="700" y="607" text-anchor="middle" font-weight="700">08 — Gap Analysis</text><text x="700" y="632" text-anchor="middle" font-size="14" fill="#555">Current State • Gaps • Findings</text>
+<rect x="940" y="575" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="1135" y="607" text-anchor="middle" font-weight="700">09 — Remediation &amp; Action Plan</text><text x="1135" y="632" text-anchor="middle" font-size="14" fill="#555">Priority • Owner • Status</text>
+<rect x="285" y="720" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="480" y="752" text-anchor="middle" font-weight="700">10 — Evidence &amp; Audit Preparation</text><text x="480" y="777" text-anchor="middle" font-size="14" fill="#555">Requirements • Evidence • Validation</text>
+<rect x="725" y="720" width="390" height="78" rx="15" fill="#fff" stroke="#555" stroke-width="2"/><text x="920" y="752" text-anchor="middle" font-weight="700">11 — Final GRC Assessment</text><text x="920" y="777" text-anchor="middle" font-size="14" fill="#555">Findings • Risk Posture • Report</text>
+</g>
+<g stroke="#777" stroke-width="2" fill="none">
+<path d="M700 227 V260 H265 V285"/><path d="M700 260 V285"/><path d="M700 260 H1135 V285"/>
+<path d="M265 363 V430"/><path d="M700 363 V430"/><path d="M1135 363 V430"/>
+<path d="M265 508 V575"/><path d="M700 508 V575"/><path d="M1135 508 V575"/>
+<path d="M265 653 V685 H480 V720"/><path d="M700 653 V685 H480 V720"/><path d="M1135 653 V685 H920 V720"/>
+<path d="M480 798 H920"/>
+</g>
+<text x="700" y="850" text-anchor="middle" font-family="Arial" font-size="14" fill="#666">Privacy rule: sanitized lab data only — no personal IPs, credentials, tokens, private keys or sensitive information.</text>
+</svg>
