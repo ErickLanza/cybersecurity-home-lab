@@ -1,29 +1,27 @@
-﻿# DLP Lab â€” Data Loss Prevention
+# DLP Lab - Data Loss Prevention
 
 ## Lab Overview
 
 ![DLP Lab Roadmap](assets/DLP-Lab-roadmap.svg)
 
-<a id="dlp-roadmap"></a>
 
 ## DLP Roadmap
 
-- [01 â€” DLP Fundamentals & Scope](#dlp-fundamentals)
-- [02 â€” Sensitive Data Identification](#sensitive-data)
-- [03 â€” DLP Policy Design](#dlp-policy-design)
-- [04 â€” Windows Endpoint DLP Simulation](#windows-endpoint-dlp)
-- [05 â€” Wazuh DLP Detection](#wazuh-dlp)
-- [06 â€” Custom Detection Rules](#custom-detection)
-- [07 â€” Email Alerting](#email-alerting)
-- [08 â€” Automated Notification with Shuffle](#shuffle)
-- [09 â€” SMS / Mobile Notification](#sms)
-- [10 â€” Controlled DLP Testing](#controlled-testing)
-- [11 â€” Evidence & Incident Documentation](#evidence)
-- [12 â€” Final DLP Assessment](#final-assessment)
+- [01 - DLP Fundamentals & Scope](#dlp-fundamentals--scope)
+- [02 - Sensitive Data Identification](#sensitive-data-identification)
+- [03 - DLP Policy Design](#dlp-policy-design)
+- [04 - Windows Endpoint DLP Simulation](#windows-endpoint-dlp-simulation)
+- [05 - Wazuh DLP Detection](#wazuh-dlp-detection)
+- [06 - Custom Detection Rules](#custom-detection-rules)
+- [07 - Email Alerting](#email-alerting)
+- [08 - Automated Notification with Shuffle](#automated-notification-with-shuffle)
+- [09 - SMS / Mobile Notification](#sms--mobile-notification)
+- [10 - Controlled DLP Testing](#controlled-dlp-testing)
+- [11 - Evidence & Incident Documentation](#evidence--incident-documentation)
+- [12 - Final DLP Assessment](#final-dlp-assessment)
 
 ---
 
-<a id="dlp-fundamentals"></a>
 
 ## DLP Fundamentals & Scope
 
@@ -94,11 +92,10 @@ The lab considered several potential data-loss scenarios:
 
 Not every scenario was implemented because some controls or external services were not available in the laboratory environment.
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="sensitive-data"></a>
 
 ## Sensitive Data Identification
 
@@ -141,11 +138,10 @@ The DLP environment was designed to identify sensitive information through:
 - Custom detection rules
 - SIEM event analysis
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="dlp-policy-design"></a>
 
 ## DLP Policy Design
 
@@ -177,9 +173,9 @@ The laboratory included controls for:
 One of the USB alert profiles used the following conditions:
 
 ```text
-Action              â†’ File Paste
-File Classification â†’ Restricted
-USB Event           â†’ True
+Action              -> File Paste
+File Classification -> Restricted
+USB Event           -> True
 ```
 
 These conditions were used to evaluate whether a sensitive file transfer to removable storage would generate an alert.
@@ -193,11 +189,10 @@ Depending on the control being tested, possible responses included:
 - SIEM detection
 - Automated notification
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="windows-endpoint-dlp"></a>
 
 ## Windows Endpoint DLP Simulation
 
@@ -235,11 +230,10 @@ Initial validation confirmed that:
 - USB activity was being audited.
 - Clipboard file-copy activity was being recorded.
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="wazuh-dlp"></a>
 
 ## Wazuh DLP Detection
 
@@ -285,11 +279,10 @@ The events were used to validate custom DLP detection logic and support the auto
 
 ![Wazuh event details](./screenshots/phase-dlp-wazuh-event-details-100600.png)
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="custom-detection"></a>
 
 ## Custom Detection Rules
 
@@ -338,11 +331,10 @@ This difference between rule validation and live alert generation was documented
 
 ![Wazuh dashboard alert](./screenshots/phase-dlp-wazuh-dashboard-alert-100600.png)
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="email-alerting"></a>
 
 ## Email Alerting
 
@@ -360,13 +352,13 @@ The intended notification architecture was:
 
 ```text
 DLP Event
-    â†“
+    v
 Wazuh
-    â†“
+    v
 Detection
-    â†“
+    v
 Notification
-    â†“
+    v
 Email
 ```
 
@@ -384,11 +376,10 @@ This was documented as a technical limitation rather than treated as a successfu
 
 ![DLP email incident](./screenshots/phase-dlp-email-incident.png)
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="shuffle"></a>
 
 ## Automated Notification with Shuffle
 
@@ -410,13 +401,13 @@ The final workflow was:
 
 ```text
 Wazuh DLP Webhook
-        â†“
+        v
 Shuffle Tools
-        â†“
+        v
 Execute Python
-        â†“
+        v
 Postfix SMTP Relay
-        â†“
+        v
 Gmail
 ```
 
@@ -458,15 +449,15 @@ This validated the following workflow:
 
 ```text
 DLP Event
-    â†“
+    v
 Webhook
-    â†“
+    v
 Shuffle
-    â†“
+    v
 Python
-    â†“
+    v
 Postfix
-    â†“
+    v
 Gmail
 ```
 
@@ -474,11 +465,10 @@ Gmail
 
 ![DLP email notification received](./screenshots/dlp-8-DLP-Email-Notification-Received.png)
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="sms"></a>
 
 ## SMS / Mobile Notification
 
@@ -492,13 +482,13 @@ The intended architecture was:
 
 ```text
 DLP Event
-    â†“
+    v
 Wazuh
-    â†“
+    v
 Shuffle
-    â†“
+    v
 SMS Provider
-    â†“
+    v
 Mobile Notification
 ```
 
@@ -513,14 +503,13 @@ No payment was made and no production SMS service was deployed.
 **Result:**
 
 ```text
-Not implemented â€” documented limitation.
+Not implemented - documented limitation.
 ```
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="controlled-testing"></a>
 
 ## Controlled DLP Testing
 
@@ -532,19 +521,19 @@ For each scenario, the following aspects were considered:
 
 ```text
 Scenario
-    â†“
+    v
 Sensitive Data
-    â†“
+    v
 Action Attempted
-    â†“
+    v
 DLP Control
-    â†“
+    v
 Detection / Audit
-    â†“
+    v
 Block / Allow
-    â†“
+    v
 Alert
-    â†“
+    v
 Evidence
 ```
 
@@ -555,7 +544,7 @@ Email-related DLP and notification workflows were investigated during the earlie
 The project also validated email notification infrastructure through the:
 
 ```text
-Wazuh â†’ Shuffle â†’ Postfix â†’ Gmail
+Wazuh -> Shuffle -> Postfix -> Gmail
 ```
 
 workflow.
@@ -701,11 +690,10 @@ No dedicated repeated-exfiltration scenario was implemented.
 | Repeated Exfiltration | Not implemented |
 | SMS Notification | Not implemented |
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="evidence"></a>
 
 ## Evidence & Incident Documentation
 
@@ -749,7 +737,7 @@ Where a control did not behave as expected, the result was documented as a limit
 
 ### Alert Evidence
 
-#### DLP 1â€“4
+#### DLP 1-4
 
 ```text
 screenshots/phase-dlp-domain-configuration.png
@@ -760,7 +748,7 @@ screenshots/phase-dlp-win11-agent-communication.png
 screenshots/phase-dlp-data-leak-prevention-policy.png
 ```
 
-#### DLP 5 â€” Wazuh DLP Detection
+#### DLP 5 - Wazuh DLP Detection
 
 ```text
 screenshots/phase-dlp-wazuh-agent-connectivity.png
@@ -769,7 +757,7 @@ screenshots/phase-dlp-wazuh-archive-event-100600.png
 screenshots/phase-dlp-wazuh-event-details-100600.png
 ```
 
-#### DLP 6 â€” Custom Detection Rules
+#### DLP 6 - Custom Detection Rules
 
 ```text
 screenshots/phase-dlp-wazuh-custom-rule-100600.png
@@ -777,7 +765,7 @@ screenshots/phase-dlp-wazuh-custom-rule-100601.png
 screenshots/phase-dlp-wazuh-dashboard-alert-100600.png
 ```
 
-#### DLP 7 â€” Email Alerting
+#### DLP 7 - Email Alerting
 
 ```text
 screenshots/phase-dlp-email-notification-configuration.png
@@ -788,7 +776,7 @@ screenshots/phase-dlp-email-warning.png
 screenshots/phase-dlp-script-log.png
 ```
 
-#### DLP 8 â€” Shuffle Automation
+#### DLP 8 - Shuffle Automation
 
 ```text
 screenshots/dlp-8-Shuffle-DLP-Notification-Workflow.png
@@ -798,7 +786,7 @@ screenshots/dlp-8-Postfix-Email-Delivery-Test.png
 screenshots/dlp-8-DLP-Email-Notification-Received.png
 ```
 
-#### DLP 10 â€” Controlled DLP Testing
+#### DLP 10 - Controlled DLP Testing
 
 ```text
 screenshots/dlp-10-Clipboard-File-Copy-Audit-Event.png
@@ -824,11 +812,10 @@ Before public publication, screenshots should be reviewed for:
 
 Synthetic data was used during testing.
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
 ---
 
-<a id="final-assessment"></a>
 
 ## Final DLP Assessment
 
@@ -871,19 +858,19 @@ The validated detection and response architecture was:
 
 ```text
 Endpoint Activity
-       â†“
+       v
 DataSecurity Plus
-       â†“
+       v
 DLP Event
-       â†“
+       v
 Wazuh
-       â†“
+       v
 Shuffle
-       â†“
+       v
 Python
-       â†“
+       v
 Postfix
-       â†“
+       v
 Email Notification
 ```
 
@@ -924,17 +911,17 @@ The DLP Mini Lab successfully demonstrated the core principles of:
 
 ```text
 Identify
-   â†“
+   v
 Classify
-   â†“
+   v
 Monitor
-   â†“
+   v
 Detect
-   â†“
+   v
 Automate
-   â†“
+   v
 Notify
-   â†“
+   v
 Document
 ```
 
@@ -946,5 +933,5 @@ The final laboratory therefore represents a practical DLP security engineering e
 
 ---
 
-â¬†ï¸ [Back to Roadmap](#dlp-roadmap)
+[Back to Roadmap](#dlp-roadmap)
 
